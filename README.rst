@@ -8,9 +8,9 @@ the reports.
 Installation
 ------------
 
-Copy the `tex` directory to your `texmf` directory.
+Copy the ``tex`` directory to your ``texmf`` directory.
 
 Usage
 -----
 
-Refer to `doc/latex/iitm-tex-utils/example.tex`.
+Refer to ``doc/latex/iitm-tex-utils/example.tex``.

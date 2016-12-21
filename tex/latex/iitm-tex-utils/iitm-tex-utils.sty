@@ -2,14 +2,14 @@
 % Author: Jithin Jith <j.jith@outlook.com>
 %
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{iitm-tex-utils}[2016/12/15 IIT Madras style cover page, datasheet, etc. for research scholar reports]
+\ProvidesPackage{iitm-tex-utils}[2016/12/15 v0.1 IIT Madras style cover page, datasheet, etc. for research scholar reports]
 
 \RequirePackage{graphicx}
 \RequirePackage{kvoptions}
 
 \SetupKeyvalOptions{
-	family = opt,
-	prefix = opt@
+    family = opt,
+    prefix = opt@
 }
 
 \DeclareBoolOption{semreport} % Pass this option if preparing semester report
@@ -52,11 +52,11 @@
 \let\@guides\@empty
 %\newcounter{numguides}
 \newcommand*{\guide}[1]{%\stepcounter{numguides}%
-	\ifx\@guides\@empty%
-		\g@addto@macro\@guides{#1}%
-	\else%
-		\g@addto@macro\@guides{\\#1}%
-	\fi%
+    \ifx\@guides\@empty%
+        \g@addto@macro\@guides{#1}%
+    \else%
+        \g@addto@macro\@guides{\\#1}%
+    \fi%
 }
 
 % Date of joining
@@ -94,19 +94,19 @@
 \let\@courses\@empty
 \newcounter{numcourses}
 \newcommand*{\course}[1]{\stepcounter{numcourses}%
-	\ifx\@courses\@empty%
-		\protected@edef\@temprow{\thenumcourses & \unexpanded{#1}}
-	\else%
-		\protected@edef\@temprow{\noexpand\\ \thenumcourses & \unexpanded{#1}}
-	\fi%
-	\expandafter\g@addto@macro\expandafter\@courses\expandafter{\@temprow}%
+    \ifx\@courses\@empty%
+        \protected@edef\@temprow{\thenumcourses & \unexpanded{#1}}
+    \else%
+        \protected@edef\@temprow{\noexpand\\ \thenumcourses & \unexpanded{#1}}
+    \fi%
+    \expandafter\g@addto@macro\expandafter\@courses\expandafter{\@temprow}%
 }
 
 % Signature
 \newif\ifmysignature
 \mysignaturefalse
 \newcommand*{\mysign}[1]{\mysignaturetrue%
-	\gdef\@mysign{#1}
+    \gdef\@mysign{#1}
 }
 
 
@@ -151,117 +151,117 @@
 
 % Create data sheet
 \newcommand*{\makedatasheet}{%
-	\newpage
-	\thispagestyle{empty}
-	{\centering%
-		\ifopt@semreport
-		{\bfseries\Large Six Monthly Progress Report of Research Scholars\unskip\strut\par}
-		\else
-		{\bfseries\Large Data Sheet\unskip\strut\par}
-		\fi
-		\vspace{1em}
-		%
-		\ifperiod
-		{\bfseries\large Period: \@period\unskip\strut\par}
-		\vspace{1em}
-		\fi
-		%
-		{\bfseries\large\@department\unskip\strut\par}
-		\vspace{1em}
-		%
-		\begin{tabular}{rlll}
-			1 & Name                              & : &  \@author \\
-			2 & Roll No.                          & : &  \@rollno \\
-			3 & Program                           & : &  \@program \\
-			4 & Specialisation                    & : &  \@spec \\
-			5 & Category                          & : &  \@category \\
-			6 & Guide(s)                          & : &
-			\begin{tabular}[t]{@{}l@{}}%
-				\@guides
-			\end{tabular}\\
-			7 & Date of Joining                   & : &  \@datejoin \\
-			8 & Date of Registration              & : &  \@datereg \\
-			9 & Area of Research                  & : &
-			%\begin{minipage}[t]{0.8\columnwidth}%
-			\begin{tabular}[t]{@{}l@{}}%
-				\@area
-			\end{tabular}\\
-			%\end{minipage}\\
-			10 & Date of Comprehensive Examination & : &  \@datecompre \\
-			11 & Date of Research Proposal Meeting & : &  \@dateproposal \\
-			12 & Date of Second Seminar            & : &  \@dateseminar %\\
-		\end{tabular}
-		\unskip\strut\par
-		%
-		\vspace{2em}
-		%\vfill
-		{\bfseries Details of Coursework\unskip\strut\par}
-		\vspace{1em}
-		\begin{tabular}{cclcccc}
-			\hline
-			S.No. & Course No. & Course Name & Sem. & Type & Credits & Grade \\
-			\hline
-			\@courses \\
-			\hline
-		\end{tabular}
-		\unskip\strut\par
-	}
-	\vspace{2em}
-	{\raggedright%
-		\@date\unskip\strut\par
-	}
-	{\raggedright%
-		IIT Madras, Chennai\unskip\strut\par
-	}
-	\vspace{1em}
-	{\raggedright%
-		Signature of the Guide(s)
-		\hfill
-		Signature of the Scholar\\%
-		\ifmysignature%
-		\hfill%
-		\@mysign%
-		\fi%
-	}
-	\newpage
+    \newpage
+    \thispagestyle{empty}
+    {\centering%
+        \ifopt@semreport
+        {\bfseries\Large Six Monthly Progress Report of Research Scholars\unskip\strut\par}
+        \else
+        {\bfseries\Large Data Sheet\unskip\strut\par}
+        \fi
+        \vspace{1em}
+        %
+        \ifperiod
+        {\bfseries\large Period: \@period\unskip\strut\par}
+        \vspace{1em}
+        \fi
+        %
+        {\bfseries\large\@department\unskip\strut\par}
+        \vspace{1em}
+        %
+        \begin{tabular}{rlll}
+            1 & Name                              & : &  \@author \\
+            2 & Roll No.                          & : &  \@rollno \\
+            3 & Program                           & : &  \@program \\
+            4 & Specialisation                    & : &  \@spec \\
+            5 & Category                          & : &  \@category \\
+            6 & Guide(s)                          & : &
+            \begin{tabular}[t]{@{}l@{}}%
+                \@guides
+            \end{tabular}\\
+            7 & Date of Joining                   & : &  \@datejoin \\
+            8 & Date of Registration              & : &  \@datereg \\
+            9 & Area of Research                  & : &
+            %\begin{minipage}[t]{0.8\columnwidth}%
+            \begin{tabular}[t]{@{}l@{}}%
+                \@area
+            \end{tabular}\\
+            %\end{minipage}\\
+            10 & Date of Comprehensive Examination & : &  \@datecompre \\
+            11 & Date of Research Proposal Meeting & : &  \@dateproposal \\
+            12 & Date of Second Seminar            & : &  \@dateseminar %\\
+        \end{tabular}
+        \unskip\strut\par
+        %
+        \vspace{2em}
+        %\vfill
+        {\bfseries Details of Coursework\unskip\strut\par}
+        \vspace{1em}
+        \begin{tabular}{cclcccc}
+            \hline
+            S.No. & Course No. & Course Name & Sem. & Type & Credits & Grade \\
+            \hline
+            \@courses \\
+            \hline
+        \end{tabular}
+        \unskip\strut\par
+    }
+    \vspace{2em}
+    {\raggedright%
+        \@date\unskip\strut\par
+    }
+    {\raggedright%
+        IIT Madras, Chennai\unskip\strut\par
+    }
+    \vspace{1em}
+    {\raggedright%
+        Signature of the Guide(s)
+        \hfill
+        Signature of the Scholar\\%
+        \ifmysignature%
+        \hfill%
+        \@mysign%
+        \fi%
+    }
+    \newpage
 }
 
 % Create cover page
 \newcommand*{\makecoverpage}{%
-	\newpage
-	\thispagestyle{empty}
-	%
-	\ifcoverbox
-	{\raggedright%
-		\large%
-		\hfill%
-		\begin{tabular}{|lll|}%
-			\hline%
-			{\bfseries Date} & : & \@coverdate \\%
-			{\bfseries Venue} & : & \@covervenue \\%
-			{\bfseries Time} & : & \@covertime \\%
-			\hline%
-		\end{tabular}%
-	}
-	\fi
-	%
-	{\centering%
-		%
-		\vfill
-		{\bfseries\Large\@title\unskip\strut\par}
-		%
-		\vfill
-		{\bfseries By \\ \ \\ \large\@author\unskip\strut\par}
-		%
-		\vspace{2em}
-		{\bfseries Under the guidance of \\ \ \\ \large\@guides\unskip\strut\par}
-		%
-		\vfill
-		%\centering
-		\includegraphics[width=0.2\textwidth]{iitm-logo}
-		%
-		\vfill
-		{\large\bfseries \@division \\ \@department \\ Indian Institute of Technology Madras \\ Chennai 600 036\unskip\strut\par}
-	}
-	\newpage
+    \newpage
+    \thispagestyle{empty}
+    %
+    \ifcoverbox
+    {\raggedright%
+        \large%
+        \hfill%
+        \begin{tabular}{|lll|}%
+            \hline%
+            {\bfseries Date} & : & \@coverdate \\%
+            {\bfseries Venue} & : & \@covervenue \\%
+            {\bfseries Time} & : & \@covertime \\%
+            \hline%
+        \end{tabular}%
+    }
+    \fi
+    %
+    {\centering%
+        %
+        \vfill
+        {\bfseries\Large\@title\unskip\strut\par}
+        %
+        \vfill
+        {\bfseries By \\ \ \\ \large\@author\unskip\strut\par}
+        %
+        \vspace{2em}
+        {\bfseries Under the guidance of \\ \ \\ \large\@guides\unskip\strut\par}
+        %
+        \vfill
+        %\centering
+        \includegraphics[width=0.2\textwidth]{iitm-logo}
+        %
+        \vfill
+        {\large\bfseries \@division \\ \@department \\ Indian Institute of Technology Madras \\ Chennai 600 036\unskip\strut\par}
+    }
+    \newpage
 }

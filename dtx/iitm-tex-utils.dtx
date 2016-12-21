@@ -1,0 +1,643 @@
+% \iffalse meta-comment
+%
+% MIT License
+%
+% Copyright (c) 2016 Jithin Jith
+%
+% Permission is hereby granted, free of charge, to any person obtaining a copy
+% of this software and associated documentation files (the "Software"), to deal
+% in the Software without restriction, including without limitation the rights
+% to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+% copies of the Software, and to permit persons to whom the Software is
+% furnished to do so, subject to the following conditions:
+%
+% The above copyright notice and this permission notice shall be included in all
+% copies or substantial portions of the Software.
+%
+% THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+% IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+% FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+% AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+% LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+% OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+% SOFTWARE.
+%
+% \fi
+%
+% \iffalse
+%<package>\NeedsTeXFormat{LaTeX2e}
+%<package>\ProvidesPackage{iitm-tex-utils}
+%<package> [2016/12/15 v0.1 IIT Madras style cover page, datasheet, etc. for research scholar reports]
+%
+%<*driver>
+\documentclass{ltxdoc}
+\usepackage{iitm-tex-utils}
+\EnableCrossrefs
+\CodelineIndex
+\RecordChanges
+%\OnlyDescription
+\begin{document}
+\DocInput{iitm-tex-utils.dtx}
+\end{document}
+%</driver>
+% \fi
+%
+% \CheckSum{0}
+% \CharacterTable
+%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%   Digits        \0\1\2\3\4\5\6\7\8\9
+%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%   Dollar        \$     Percent       \%     Ampersand     \&
+%   Acute accent  \'     Left paren    \(     Right paren   \)
+%   Asterisk      \*     Plus          \+     Comma         \,
+%   Minus         \-     Point         \.     Solidus       \/
+%   Colon         \:     Semicolon     \;     Less than     \<
+%   Equals        \=     Greater than  \>     Question mark \?
+%   Commercial at \@     Left bracket  \[     Backslash     \\
+%   Right bracket \]     Circumflex    \^     Underscore    \_
+%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%   Right brace   \}     Tilde         \~}
+%
+% \changes{v0.1}{2016/12/15}{Initial version}
+%
+% \DoNotIndex{\newcommand,\newenvironment}
+%
+% \GetFileInfo{iitm-tex-utils.sty}
+%
+% \title{The \textsf{iitm-tex-utils} package\thanks{This document corresponds
+% to \textsf{iitm-tex-utils}~\fileversion, dated~\filedate.}}
+% \author{Jithin Jith \\ \texttt{j.jith@outlook.com}}
+%
+% \maketitle
+%
+% \section{Introduction}
+% This package helps research scholars of IIT Madras make data sheets and cover
+% pages for their DC/GTC/semester reports.
+%
+% \section{Usage}
+% This package depends on the \texttt{graphicx} and \texttt{kvoptions} package.
+% Please ensure you have these packages installed beforehand. To use the
+% \texttt{iitm-tex-utils} package, simply include it in the preamble of your
+% document by \texttt{\textbackslash usepackage\{iitm-tex-utils\}}. The
+% features of this package are described below.
+%
+% \subsection{Options}
+% If you are creating a DC/GTC report, no special options need to be passed.
+% However, if you are creating a semester report, please pass the
+% \texttt{semreport} options by \texttt{\textbackslash usepackage[semreport]\{iitm-tex-utils\}}.
+%
+% \subsection{Creating a data sheet}
+% This package can help you create a data sheet for your DC/GTC/semester
+% report. The data sheet can be created using the command
+% \texttt{\textbackslash makedatasheet}. However, the following commands have
+% to be called before making the data sheet: \\
+%
+% \DescribeMacro{\author}
+% |{<arg1>}| 
+%
+% This is not a command provided by this package. This command should be part
+% of the document class you are using. This package uses the argument you pass
+% to this command as your name. \\
+%
+% \DescribeMacro{\period}
+% |{<arg1>}| 
+%
+% The period for which you are submitting a semester report. This is required
+% only for semester reports. \\
+%
+% \DescribeMacro{\department}
+% |{<arg1>}| 
+%
+% Department to which you belong \\
+%
+% \DescribeMacro{\rollno}
+% |{<arg1>}| 
+%
+% Your roll number \\
+%
+% \DescribeMacro{\program}
+% |{<arg1>}| 
+%
+% Your program (MS/PhD/M.Tech/etc.) \\
+%
+% \DescribeMacro{\spec}
+% |{<arg1>}| 
+%
+% Your specialisation \\
+%
+% \DescribeMacro{\category}
+% |{<arg1>}| 
+%
+% Your category (Regular/Part-time/External/QIP) \\
+%
+% \DescribeMacro{\guide}
+% |{<arg1>}| 
+%
+% Your guide/adviser. Use this command multiple times to add multiple guides.
+% \\
+%
+% \DescribeMacro{\area}
+% |{<arg1>}| 
+%
+% Your area of research \\
+%
+% \DescribeMacro{\datejoin}
+% |{<arg1>}| 
+%
+% Date of joining \\
+%
+% \DescribeMacro{\datereg}
+% |{<arg1>}| 
+%
+% Date of registration \\
+%
+% \DescribeMacro{\datecompre}
+% |{<arg1>}| 
+%
+% Date of comprehensive exam \\
+%
+% \DescribeMacro{\dateproposal}
+% |{<arg1>}| 
+%
+% Date of research proposal seminar \\
+%
+% \DescribeMacro{\dateseminar}
+% |{<arg1>}| 
+%
+% Date of second seminar \\
+%
+% \DescribeMacro{\course}
+% |{<arg1>}| 
+%
+% For courses you have completed. Each course is to be added as
+% \begin{verbatim}
+% \course{course no. & course name & semester & core/elec & credits & grade}
+% \end{verbatim}
+%
+% \DescribeMacro{\mysign}
+% |{<arg1>}|
+%
+% For including your signature at the bottom of the data sheet. To be used as
+% \begin{verbatim}
+% \mysign{\includegraphics[scale=0.5]{path/to/signature/image}}
+% \end{verbatim}
+%
+% \subsection{Creating a cover page}
+% This package can also help you make a cover page for yout report. The cover
+% page can be made in a new page by calling \verb|\makecoverpage|. The
+% following commands have to be used to provide the information required on the
+% cover page. \\
+%
+% \DescribeMacro{\title}
+% |{<arg1>}|
+%
+% This command is not part of this package. This command should be part of the
+% document class you are using. This package uses the argument you pass to this
+% command as the title of you report. \\
+%
+% \DescribeMacro{\coverdate}
+% |{<arg1>}| 
+%
+% The date of your meeting/seminar \\
+%
+% \DescribeMacro{\covervenue}
+% |{<arg1>}| 
+%
+% The venue of your meeting/seminar \\
+%
+% \DescribeMacro{\covertime}
+% |{<arg1>}| 
+%
+% The time of your meeting/seminar \\
+%
+% \DescribeMacro{\division}
+% |{<arg1>}| 
+%
+% If you belong to a sub-division of you department, use this command \\
+%
+% Apart from these commands, you also need to use the |\author|, |\department|,
+% and |\guide| commands (which were described earlier) to provide all the
+% information required for the cover page.
+%
+% \subsection{Example}
+% An example document is given below:
+% \begin{verbatim}
+% \documentclass[12pt,a4paper]{article}
+% \usepackage{graphicx}
+% 
+% \usepackage{iitm-tex-utils}
+% % \usepackage[semreport]{iitm-tex-utils} % (for semester reports)
+% 
+% \author{Jukka Sarasti}
+% % \period{Jul to Dec YYYY} % (for semester reports)
+% \rollno{AMYYD0XX}
+% \department{Department of XYZ}
+% \division{PQR Division}
+% \program{PhD}
+% \spec{Specialisation}
+% \category{Regular}
+% \guide{Dr.~Guide 1}
+% \guide{Dr.~Guide 2}
+% \datejoin{dd-mm-yyyy}
+% \datereg{dd-mm-yyy}
+% \area{Area of research}
+% \datecompre{dd-mm-yyy}
+% \dateproposal{dd-mm-yyy}
+% \dateseminar{dd-mm-yyy}
+% 
+% \course{AM1234 & A Course Name & 01 & Core & 3 & C}
+% \course{AM3456 & Another Course Name & 02 & Core & 4 & S}
+% \course{AM5678 & Yet Another Course Name & 02 & Elec. & 3 & B}
+% 
+% \coverdate{dd-mm-yyy}
+% \covervenue{The place}
+% \covertime{hh:mm}
+% 
+% \title{This Title Is Too Short}
+% 
+% \begin{document}
+%   \makecoverpage
+%
+%   \makedatasheet
+%
+%   \section{Section One}
+%       Stuff...
+% \end{document}
+% \end{verbatim}
+%
+%
+% \StopEventually{}
+%
+% \section{Implementation}
+%
+% \subsection{Prerequisites}
+%
+% The following packages are a prerequisite for this package:
+%    \begin{macrocode}
+\RequirePackage{graphicx}
+\RequirePackage{kvoptions}
+%    \end{macrocode}
+%
+% \subsection{Options}
+%
+% Define keyvalue options and process them. The \texttt{semreport} option is to
+% be passed if the user intends to create a semester report instead of a DC/GTC
+% report.
+%    \begin{macrocode}
+\SetupKeyvalOptions{
+    family = opt,
+    prefix = opt@
+}
+\DeclareBoolOption{semreport}
+\ProcessKeyvalOptions*
+%    \end{macrocode}
+%
+% \subsection{Macros for the data sheet}
+%
+% \begin{macro}{\period}
+% Period for which the user intends to prepare a semester
+% report.
+%    \begin{macrocode}
+\newcommand*{\period}[1]{\gdef\@period{#1}%
+}
+\newcommand*{\@period}{Jan/Jul to Jun/Dec YYYY}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\department}
+% Name of the department.
+%    \begin{macrocode}
+\newcommand*{\department}[1]{\gdef\@department{#1}%
+}
+\newcommand*{\@department}{Name of the Department}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\rollno}
+% Roll number of the user.
+%    \begin{macrocode}
+\newcommand*{\rollno}[1]{\gdef\@rollno{#1}%
+}
+\newcommand*{\@rollno}{}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\program}
+% Program to which the user belongs (MS/PhD/M.Tech/etc.)
+% Research scholar's program
+%    \begin{macrocode}
+\newcommand*{\program}[1]{\gdef\@program{#1}%
+}
+\newcommand*{\@program}{MS/PhD/MS \& PhD/M.Tech \& PhD}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\spec}
+% Specialisation of the user
+%    \begin{macrocode}
+\newcommand*{\spec}[1]{\gdef\@spec{#1}%
+}
+\newcommand*{\@spec}{}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\category}
+% Category to which the user belongs (Regular/Part-time/External/QIP)
+%    \begin{macrocode}
+\newcommand*{\category}[1]{\gdef\@category{#1}%
+}
+\newcommand*{\@category}{Regular/Part-time/External/QIP}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\guide}
+% Add research guides/advisers. Can be used multiple times to add multiple
+% guides.
+%    \begin{macrocode}
+\let\@guides\@empty
+\newcommand*{\guide}[1]{%
+    \ifx\@guides\@empty%
+        \g@addto@macro\@guides{#1}%
+    \else%
+        \g@addto@macro\@guides{\\#1}%
+    \fi%
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\datejoin}
+% Date of joining
+%    \begin{macrocode}
+\newcommand*{\datejoin}[1]{\gdef\@datejoin{#1}%
+}
+\newcommand*{\@datejoin}{}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\datereg}
+% Date of registration
+%    \begin{macrocode}
+\newcommand*{\datereg}[1]{\gdef\@datereg{#1}%
+}
+\newcommand*{\@datereg}{}
+%    \end{macrocode}
+% \end{macro}
+% 
+% \begin{macro}{\area}
+% Area of research
+%    \begin{macrocode}
+\newcommand*{\area}[1]{\gdef\@area{#1}%
+}
+\newcommand*{\@area}{}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\datecompre}
+% Date of comprehensive exam
+%    \begin{macrocode}
+\newcommand*{\datecompre}[1]{\gdef\@datecompre{#1}%
+}
+\newcommand*{\@datecompre}{n/a}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\dateproposal}
+% Date of research proposal seminar
+%    \begin{macrocode}
+\newcommand*{\dateproposal}[1]{\gdef\@dateproposal{#1}%
+}
+\newcommand*{\@dateproposal}{n/a}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\dateseminar}
+% Date of second seminar
+%    \begin{macrocode}
+\newcommand*{\dateseminar}[1]{\gdef\@dateseminar{#1}%
+}
+\newcommand*{\@dateseminar}{n/a}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\course}
+% Courses the user has completed.
+% Should be used as: |\course|\texttt{\{course no. \& course name \& semester
+% \& type (core/elec) \& credits \& grade\}}
+%    \begin{macrocode}
+\let\@courses\@empty
+\newcounter{numcourses}
+\newcommand*{\course}[1]{\stepcounter{numcourses}%
+    \ifx\@courses\@empty%
+        \protected@edef\@temprow{\thenumcourses & \unexpanded{#1}}
+    \else%
+        \protected@edef\@temprow{\noexpand\\ \thenumcourses & \unexpanded{#1}}
+    \fi%
+    \expandafter\g@addto@macro\expandafter\@courses\expandafter{\@temprow}%
+}
+%    \end{macrocode}
+% \end{macro}
+% 
+% \begin{macro}{\mysign}
+% User's signature at the bottom of the data sheet. Can be used as:
+% |\mysign|\texttt{[scale=<num>]\{path/to/signature/image\}}
+%    \begin{macrocode}
+\newif\ifmysignature
+\mysignaturefalse
+\newcommand*{\mysign}[1]{\mysignaturetrue%
+	\gdef\@mysign{#1}
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \subsection{Macros for the cover page}
+%
+% \begin{macro}{\division}
+% If the user belongs to a subdivision of the department, use this
+%    \begin{macrocode}
+\newcommand*{\division}[1]{\gdef\@division{#1}%
+}
+\newcommand*{\@division}{\ }
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\coverdate}
+% Date of the seminar/meeting (shows up in a box on the top-right of the cover
+% page)
+%    \begin{macrocode}
+\newcommand*{\coverdate}[1]{\gdef\@coverdate{#1}%
+}
+\newcommand*{\@coverdate}{dd-mm-yy}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\covervenue}
+% Venue of the seminar/meeting (shows up in a box on the top-right of the cover
+% page)
+%    \begin{macrocode}
+\newcommand*{\covervenue}[1]{\gdef\@covervenue{#1}%
+}
+\newcommand*{\@covervenue}{venue}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\covertime}
+% Time of the seminar/meeting (shows up in a box on the top-right of the cover
+% page)
+%    \begin{macrocode}
+\newcommand*{\covertime}[1]{\gdef\@covertime{#1}%
+}
+\newcommand*{\@covertime}{hh:mm}
+%    \end{macrocode}
+% \end{macro}
+%
+% \subsection{Miscellaneous macros}
+% Boolean which shows the ``period" on the data sheet (default: false)
+%    \begin{macrocode}
+\newif\ifperiod
+\periodfalse
+%    \end{macrocode}
+% Boolean which shows the date/place/time box on the cover page (default: true)
+%    \begin{macrocode}
+\newif\ifcoverbox
+\coverboxtrue
+%    \end{macrocode}
+%
+% \subsection{Drawing the data sheet}
+%
+% If the \texttt{semreport} option is passed, remove box on coverpage, and show period on datesheet
+%    \begin{macrocode}
+\ifopt@semreport
+\coverboxfalse
+\periodtrue
+\fi
+%    \end{macrocode}
+%
+% \begin{macro}{\makedatasheet}
+% Draw the data sheet on a new page
+%    \begin{macrocode}
+\newcommand*{\makedatasheet}{%
+    \newpage
+    \thispagestyle{empty}
+    {\centering%
+        \ifopt@semreport
+        {\bfseries\Large Six Monthly Progress Report of Research Scholars\unskip\strut\par}
+        \else
+        {\bfseries\Large Data Sheet\unskip\strut\par}
+        \fi
+        \vspace{1em}
+        %
+        \ifperiod
+        {\bfseries\large Period: \@period\unskip\strut\par}
+        \vspace{1em}
+        \fi
+        %
+        {\bfseries\large\@department\unskip\strut\par}
+        \vspace{1em}
+        %
+        \begin{tabular}{rlll}
+            1 & Name                              & : &  \@author \\
+            2 & Roll No.                          & : &  \@rollno \\
+            3 & Program                           & : &  \@program \\
+            4 & Specialisation                    & : &  \@spec \\
+            5 & Category                          & : &  \@category \\
+            6 & Guide(s)                          & : &
+            \begin{tabular}[t]{@{}l@{}}%
+                \@guides
+            \end{tabular}\\
+            7 & Date of Joining                   & : &  \@datejoin \\
+            8 & Date of Registration              & : &  \@datereg \\
+            9 & Area of Research                  & : &
+            %\begin{minipage}[t]{0.8\columnwidth}%
+            \begin{tabular}[t]{@{}l@{}}%
+                \@area
+            \end{tabular}\\
+            %\end{minipage}\\
+            10 & Date of Comprehensive Examination & : &  \@datecompre \\
+            11 & Date of Research Proposal Meeting & : &  \@dateproposal \\
+            12 & Date of Second Seminar            & : &  \@dateseminar %\\
+        \end{tabular}
+        \unskip\strut\par
+        %
+        \vspace{2em}
+        %\vfill
+        {\bfseries Details of Coursework\unskip\strut\par}
+        \vspace{1em}
+        \begin{tabular}{cclcccc}
+            \hline
+            S.No. & Course No. & Course Name & Sem. & Type & Credits & Grade \\
+            \hline
+            \@courses \\
+            \hline
+        \end{tabular}
+        \unskip\strut\par
+    }
+    \vspace{2em}
+    {\raggedright%
+        \@date\unskip\strut\par
+    }
+    {\raggedright%
+        IIT Madras, Chennai\unskip\strut\par
+    }
+    \vspace{1em}
+    {\raggedright%
+        Signature of the Guide(s)
+        \hfill
+        Signature of the Scholar\\%
+        \ifmysignature%
+        \hfill%
+        \@mysign%
+        \fi%
+    }
+    \newpage
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \subsection{Drawing the cover page}
+% \begin{macro}{\makecoverpage}
+% Draw the cover page on a new page
+%    \begin{macrocode}
+\newcommand*{\makecoverpage}{%
+    \newpage
+    \thispagestyle{empty}
+    %
+    \ifcoverbox
+    {\raggedright%
+        \large%
+        \hfill%
+        \begin{tabular}{|lll|}%
+            \hline%
+            {\bfseries Date} & : & \@coverdate \\%
+            {\bfseries Venue} & : & \@covervenue \\%
+            {\bfseries Time} & : & \@covertime \\%
+            \hline%
+        \end{tabular}%
+    }
+    \fi
+    %
+    {\centering%
+        %
+        \vfill
+        {\bfseries\Large\@title\unskip\strut\par}
+        %
+        \vfill
+        {\bfseries By \\ \ \\ \large\@author\unskip\strut\par}
+        %
+        \vspace{2em}
+        {\bfseries Under the guidance of \\ \ \\ \large\@guides\unskip\strut\par}
+        %
+        \vfill
+        %\centering
+        \includegraphics[width=0.2\textwidth]{iitm-logo}
+        %
+        \vfill
+        {\large\bfseries \@division \\ \@department \\ Indian Institute of Technology Madras \\ Chennai 600 036\unskip\strut\par}
+    }
+    \newpage
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \Finale
+\endinput

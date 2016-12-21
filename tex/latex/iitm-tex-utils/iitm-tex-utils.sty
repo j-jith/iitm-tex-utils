@@ -102,6 +102,13 @@
 	\expandafter\g@addto@macro\expandafter\@courses\expandafter{\@temprow}%
 }
 
+% Signature
+\newif\ifmysignature
+\mysignaturefalse
+\newcommand*{\mysign}[1]{\mysignaturetrue%
+	\gdef\@mysign{#1}
+}
+
 
 % Commands for cover page
 % --------------------------------
@@ -169,12 +176,17 @@
 			4 & Specialisation                    & : &  \@spec \\
 			5 & Category                          & : &  \@category \\
 			6 & Guide(s)                          & : &
-			\begin{tabular}[t]{@{}l@{}}
+			\begin{tabular}[t]{@{}l@{}}%
 				\@guides
 			\end{tabular}\\
 			7 & Date of Joining                   & : &  \@datejoin \\
 			8 & Date of Registration              & : &  \@datereg \\
-			9 & Area of Research                  & : &  \@area \\
+			9 & Area of Research                  & : &
+			%\begin{minipage}[t]{0.8\columnwidth}%
+			\begin{tabular}[t]{@{}l@{}}%
+				\@area
+			\end{tabular}\\
+			%\end{minipage}\\
 			10 & Date of Comprehensive Examination & : &  \@datecompre \\
 			11 & Date of Research Proposal Meeting & : &  \@dateproposal \\
 			12 & Date of Second Seminar            & : &  \@dateseminar %\\
@@ -205,7 +217,11 @@
 	{\raggedright%
 		Signature of the Guide(s)
 		\hfill
-		Signature of the Scholar
+		Signature of the Scholar\\%
+		\ifmysignature%
+		\hfill%
+		\@mysign%
+		\fi%
 	}
 	\newpage
 }
